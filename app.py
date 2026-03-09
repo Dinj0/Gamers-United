@@ -31,6 +31,18 @@ def pc():
 def boardgames():
     return render_template("boardgames.html")
 
+@app.route("/bg_news")
+def bg_news():
+    return render_template("bg_news.html")
+
+@app.route("/bg_reviews")
+def bg_reviews():
+    return render_template("bg_reviews.html")
+
+@app.route("/bg_top")
+def bg_top():
+    return render_template("bg_top.html")
+
 @app.route("/mobile")
 def mobile():
     return render_template("mobile.html")

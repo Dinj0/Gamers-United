@@ -38,9 +38,9 @@
             <li class="dropdown">
                 <a href="{{ url_for('boardgames') }}">Board Games</a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Board Games news</a></li>   <!-- kickstarter mozda nove-->
-                    <li><a href="#">Reviews</a></li>    
-                    <li><a href="#">Top Picks</a></li>          <!-- preporuke za party, strategije itd... -->
+                    <li><a href="{{ url_for('bg_news') }}">Board Games news</a></li>   <!-- kickstarter mozda nove-->
+                    <li><a href="{{ url_for('bg_reviews') }}">Reviews</a></li>    
+                    <li><a href="{{ url_for('bg_top') }}">Top Picks</a></li>          <!-- preporuke za party, strategije itd... -->
                 </ul>
             </li>
 
