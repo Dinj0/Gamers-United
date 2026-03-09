@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta description="Gamers United, a place where all type of gamers find news from the gaming world.">
-    <link rel="stylesheet" href="../static/styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 
 
     <title>Gamers United</title>
@@ -12,43 +12,43 @@
 </head>
 <body>
     <header>
-    <img src="../static/images/logo.png" alt="Gamers United Logo" id="logo">
+    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Gamers United Logo" id="logo">
     <nav>
        <ul>
             <li><a href="{{ url_for('index') }}">Home</a></li>
 
             <li class="dropdown">
-                <a href="#">PC</a>
+                <a href="{{ url_for('pc') }}">PC</a>
                 <ul class="dropdown-menu">
                     <li><a href="#">PC News</a></li>
-                    <li><a href="#">Hardware</a></li>
+                    <li><a href="#">Best deals</a></li>
                     <li><a href="#">PC Game Reviews</a></li>
                 </ul>
             </li>
 
             <li class="dropdown">
-                <a href="{{ url_for('nintendo') }}">Konzole</a>
+                <a href="{{ url_for('konzole') }}">Consoles</a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Playstation News</a></li>
-                    <li><a href="#">Nintendo top Games</a></li>
-                    <li><a href="#">Xbox Releases</a></li>
+                    <li><a href="#">Consoles news</a></li>      <!-- npr opce vijesti o PS5, XboX, Switch -->
+                    <li><a href="#">Top Games</a></li>
+                    <li><a href="#">Upcoming Releases</a></li>
                 </ul>
             </li>
 
             <li class="dropdown">
-                <a href="#">Board Games</a>
+                <a href="{{ url_for('boardgames') }}">Board Games</a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">New Releases</a></li>
-                    <li><a href="#">Reviews</a></li>
-                    <li><a href="#">Top Picks</a></li>
+                    <li><a href="#">Board Games news</a></li>   <!-- kickstarter mozda nove-->
+                    <li><a href="#">Reviews</a></li>    
+                    <li><a href="#">Top Picks</a></li>          <!-- preporuke za party, strategije itd... -->
                 </ul>
             </li>
 
             <li class="dropdown">
-                <a href="#">Mobile Games</a>
+                <a href="{{ url_for('mobile') }}">Mobile Games</a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">PS5 News</a></li>
-                    <li><a href="#">PS4 Games</a></li>
+                    <li><a href="#">Mobile games news</a></li>      <!-- vjesti o iOS/Android igrama-->
+                    <li><a href="#">Best Free Games</a></li>
                     <li><a href="#">Upcoming Releases</a></li>
                 </ul>
             </li>
@@ -59,8 +59,6 @@
 <div class="news-container">
 <h1 id="welcome">Welcome to Gamers United</h1>
 
-<!--
-
 {% for article in news %}
     <div class="news-item">
         <h3>{{ article.title }}</h3>
@@ -69,10 +67,10 @@
     </div>
 {% endfor %}
 
--->
+
 
 <h2 id="latest-news">Latest Global News</h2>
-<img src="../static/images/loading.jpg" alt="Loading..." id="loading" style="width: 700px;"> <!-- placeholder za api za neki news, style maknut-->
+<img src="{{ url_for('static', filename='images/loading.jpg') }}" alt="Loading..." id="loading" style="width: 700px;"> <!-- placeholder za api za neki news, style maknut-->
 
 </div>
 

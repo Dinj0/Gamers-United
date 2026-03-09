@@ -19,10 +19,25 @@ def index():
 
     return render_template('index.html', news=articles)
 
-@app.route('/nintendo')
-def nintendo():
+@app.route('/konzole')
+def konzole():
+    return render_template('konzole.html')
 
-    return render_template('nintendo.html')
+@app.route("/pc")
+def pc():
+    return render_template("pc.html")
+
+@app.route("/boardgames")
+def boardgames():
+    return render_template("boardgames.html")
+
+@app.route("/mobile")
+def mobile():
+    return render_template("mobile.html")
+
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
