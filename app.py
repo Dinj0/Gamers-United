@@ -1,5 +1,9 @@
+import os
+from dotenv import load_dotenv
+
 from flask import Flask, render_template
 import requests
+load_dotenv()                               # Učitava .env file
 
 app = Flask(__name__)
 
@@ -7,7 +11,7 @@ app = Flask(__name__)
 def index():
     # Koristimo besplatni NewsAPI (gaming vijesti)
     # Registriraj se na newsapi.org za svoj ključ, ili koristi ovaj privremeni:
-    api_key = "14bdca76eebb4da3bb467f0ee0d1f3f5" # Ovdje ćeš staviti svoj pravi ključ
+    api_key = os.getenv("NEWS_API_KEY")
     url = f"https://newsapi.org/v2/everything?q=gaming&language=en&pageSize=5&apiKey={api_key}"
     
     try:
