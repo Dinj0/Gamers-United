@@ -56,21 +56,51 @@
     </nav>
     </header>
 
-<h1 class="page-title">Board Games News</h1>
+<div class="hero">
+    <h1 class="page-title">Board Games News</h1>
+    <p class="page-subtitle">Latest updates from the board game world</p>
+</div>
+
+<p style="text-align:center; color:#aaa; max-width:600px; margin: 0 auto 30px;">
+    placeholder za api koji ce nam dati vijesti o board igrama, mozda i kickstarter kampanje
+</p>
 
 <div class="card-container">
-    <div class="card">
-        <h3>New game released</h3>
-        <p>Description of the news...</p>
-        <a href="#">Read more</a>
-    </div>
 
-    <div class="card">
-        <h3>Kickstarter success</h3>
-        <p>Description...</p>
-        <a href="#">Read more</a>
-    </div>
+        <div class="card">
+            <h3>📰 New Expansion Announced</h3>
+            <p>[ime preko api]</p>
+            <p style="color:#aaa;">[opis API]</p>
+        </div>
+        <div class="card">
+            <h3>🎲 Trending Board Game</h3>
+            <p>[ime igre sa Api]</p>
+            <p style="color:#aaa;">[Release info / rating]</p>
+        </div>
+        
+        <div class="card">
+            <h3>🎲 Trending Board Game</h3>
+            <p>[ime igre sa Api]</p>
+            <p style="color:#aaa;">[Release info / rating]</p>
+        </div>
 </div>
+<section class="section">
+    <h2 class="section-title">Nekakva slika</h2>
+
+    <div style="text-align:center;">
+        <img src="{{ url_for('static', filename='images/loading.jpg') }}" 
+             style="width:300px; border-radius:10px;">
+
+        <p style="color:#aaa; margin-top:10px;">
+            sliku cemo preko API
+        </p>
+    </div>
+</section>
+
+
+<footer class="footer">
+    <p>© 2025 Gamers United · All rights reserved</p>
+</footer>
 
 </body>
 </html>

@@ -204,6 +204,7 @@ nav ul li.dropdown {
 /* ── SECTION ── */
 .section {
     padding: 40px 20px;
+    border-top: 1px solid #222;
 }
 
 .section-title {
@@ -212,6 +213,129 @@ nav ul li.dropdown {
     margin-bottom: 30px;
     font-size: 24px;
 }
+
+/* ── review cards ── */
+.review-card {
+    width: 320px;
+    height: 420px;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.review-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 25px rgba(255, 0, 255, 0.4);
+}
+
+.review-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.92));
+    padding: 20px;
+}
+
+.review-card-title {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 6px;
+}
+
+.review-card-genre {
+    color: #aaa;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.review-card-desc {
+    color: #ccc;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.review-card-rating {
+    color: rgb(255, 0, 255);
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.review-card-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0,0,0,0.7);
+    color: cyan;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* ── TOP games ── */
+.top-table {
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+.top-table a:hover {
+    color: rgb(255, 0, 255);
+    transition: 0.3s;
+}
+
+.top-table th {
+    color: cyan;
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 2px solid cyan;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.top-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #222;
+    color: #ccc;
+    font-size: 15px;
+}
+
+.top-table tr:hover td {
+    background-color: #1a1a1a;
+    color: white;
+}
+
+.top-table .rank {
+    color: cyan;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.top-table .game-name {
+    color: white;
+    font-weight: bold;
+}
+
+.top-table .rating-cell {
+    color: rgb(255, 0, 255);
+    font-weight: bold;
+}
+
+.top-table .trend-up {
+    color: #00ff88;
+}
+
+.top-table .trend-down {
+    color: #ff4444;
+}
+
 
 /* ── FOOTER ── */
 .footer {

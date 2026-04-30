@@ -3,75 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta description="Gamers United, a place where all type of gamers find news from the gaming world.">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-
-
-    <title>Gamers United</title>
-
+    <title>Reviews – Board Games</title>
 </head>
 <body>
-    <header>
+
+<header>
     <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Gamers United Logo" id="logo">
     <nav>
-       <ul>
+        <ul>
             <li><a href="{{ url_for('index') }}">Home</a></li>
-
             <li class="dropdown">
                 <a href="{{ url_for('pc') }}">PC</a>
                 <ul class="dropdown-menu">
                     <li><a href="#">PC News</a></li>
-                    <li><a href="#">Best deals</a></li>
+                    <li><a href="#">Best Deals</a></li>
                     <li><a href="#">PC Game Reviews</a></li>
                 </ul>
             </li>
-
             <li class="dropdown">
                 <a href="{{ url_for('konzole') }}">Consoles</a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Consoles news</a></li>      <!-- npr opce vijesti o PS5, XboX, Switch -->
+                    <li><a href="#">Console News</a></li>
                     <li><a href="#">Top Games</a></li>
                     <li><a href="#">Upcoming Releases</a></li>
                 </ul>
             </li>
-
             <li class="dropdown">
                 <a href="{{ url_for('boardgames') }}">Board Games</a>
                 <ul class="dropdown-menu">
-                    <li><a href="{{ url_for('bg_news') }}">Board Games news</a></li>   <!-- kickstarter mozda nove-->
-                    <li><a href="{{ url_for('bg_reviews') }}">Reviews</a></li>    
-                    <li><a href="{{ url_for('bg_top') }}">Top Picks</a></li>          <!-- preporuke za party, strategije itd... -->
+                    <li><a href="{{ url_for('bg_news') }}">Board Games News</a></li>
+                    <li><a href="{{ url_for('bg_reviews') }}">Reviews</a></li>
+                    <li><a href="{{ url_for('bg_top') }}">Top Picks</a></li>
                 </ul>
             </li>
-
             <li class="dropdown">
                 <a href="{{ url_for('mobile') }}">Mobile Games</a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Mobile games news</a></li>      <!-- vjesti o iOS/Android igrama-->
+                    <li><a href="#">Mobile News</a></li>
                     <li><a href="#">Best Free Games</a></li>
                     <li><a href="#">Upcoming Releases</a></li>
                 </ul>
             </li>
         </ul>
     </nav>
-    </header>
+</header>
 
-<h1 class="page-title">Board Game Reviews</h1>
-
-<div class="card-container">
-    <div class="card">
-        <h3>Catan</h3>
-        <p>⭐⭐⭐⭐☆</p>
-        <p>Great strategy game...</p>
-    </div>
-
-    <div class="card">
-        <h3>Monopoly</h3>
-        <p>⭐⭐⭐☆☆</p>
-        <p>Classic but long...</p>
-    </div>
+<!-- HERO -->
+<div class="hero">
+    <h1 class="page-title">Board Game Reviews</h1>
+    <p class="page-subtitle">In-depth reviews powered by API data</p>
 </div>
 
+<p style="text-align:center; color:#aaa; max-width:600px; margin: 0 auto 40px;">
+    svaka kartica ce povuc podatke sa API.
+</p>
+
+<!-- REVIEW CARDS -->
+<section class="section">
+    <h2 class="section-title">Featured Reviews</h2>
+
+    <div class="card-container">
+
+        <!-- CARD 1 — placeholder za API -->
+        <div class="review-card" style="background-image: url('{{ url_for('static', filename='images/loading.jpg') }}');">
+            <div class="review-card-badge">⭐ [RATING]</div>
+            <div class="review-card-overlay">
+                <div class="review-card-title"><div Ime=""></div></div>
+                <div class="review-card-genre">[Genre] · [Players] players</div>
+                <div class="review-card-desc">[kratki review]</div>
+                <div class="review-card-rating">Score: [X.X] / 10</div>
+            </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="review-card" style="background-image: url('{{ url_for('static', filename='images/loading.jpg') }}');">
+            <div class="review-card-badge">⭐ [RATING]</div>
+            <div class="review-card-overlay">
+                <div class="review-card-title"><div Ime=""></div></div>
+                <div class="review-card-genre">[Genre] · [Players] players</div>
+                <div class="review-card-desc">[kratki review]</div>
+                <div class="review-card-rating">Score: [X.X] / 10</div>
+            </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="review-card" style="background-image: url('{{ url_for('static', filename='images/loading.jpg') }}');">
+            <div class="review-card-badge">⭐ [RATING]</div>
+            <div class="review-card-overlay">
+                <div class="review-card-title"><div Ime=""></div></div>
+                <div class="review-card-genre">[Genre] · [Players] players</div>
+                <div class="review-card-desc">[kratki review]</div>
+                <div class="review-card-rating">Score: [X.X] / 10</div>
+            </div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="review-card" style="background-image: url('{{ url_for('static', filename='images/loading.jpg') }}');">
+            <div class="review-card-badge">⭐ [RATING]</div>
+            <div class="review-card-overlay">
+                <div class="review-card-title"><div Ime=""></div></div>
+                <div class="review-card-genre">[Genre] · [Players] players</div>
+                <div class="review-card-desc">[kratki review]</div>
+                <div class="review-card-rating">Score: [X.X] / 10</div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- COMING SOON -->
+<section class="section">
+    <h2 class="section-title">Coming Soon</h2>
+    <div class="card-container">
+        <div class="card">
+            <h3>🖼️ Real Game Covers</h3>
+            <p>Cover images direktno sa boardgamegeek API</p>
+        </div>
+        <div class="card">
+            <h3>📝 Full Reviews</h3>
+            <p>detaljniji review sa boargamegeek API</p>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <p>© 2025 Gamers United · All rights reserved</p>
+</footer>
 
 </body>
 </html>
