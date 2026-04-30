@@ -3,69 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta description="Gamers United, a place where all type of gamers find news from the gaming world.">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-
-
-    <title>Gamers United</title>
-
+    <title>Board Games – Gamers United</title>
 </head>
 <body>
+
     <header>
-    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Gamers United Logo" id="logo">
-    <nav>
-       <ul>
-            <li><a href="{{ url_for('index') }}">Home</a></li>
-
-            <li class="dropdown">
-                <a href="{{ url_for('pc') }}">PC</a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">PC News</a></li>
-                    <li><a href="#">Best deals</a></li>
-                    <li><a href="#">PC Game Reviews</a></li>
-                </ul>
-            </li>
-
-            <li class="dropdown">
-                <a href="{{ url_for('konzole') }}">Consoles</a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Consoles news</a></li>      <!-- npr opce vijesti o PS5, XboX, Switch -->
-                    <li><a href="#">Top Games</a></li>
-                    <li><a href="#">Upcoming Releases</a></li>
-                </ul>
-            </li>
-
-            <li class="dropdown">
-                <a href="{{ url_for('boardgames') }}">Board Games</a>
-                <ul class="dropdown-menu">
-                    <li><a href="{{ url_for('bg_news') }}">Board Games news</a></li>   <!-- kickstarter mozda nove-->
-                    <li><a href="{{ url_for('bg_reviews') }}">Reviews</a></li>    
-                    <li><a href="{{ url_for('bg_top') }}">Top Picks</a></li>          <!-- preporuke za party, strategije itd... -->
-                </ul>
-            </li>
-
-            <li class="dropdown">
-                <a href="{{ url_for('mobile') }}">Mobile Games</a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Mobile games news</a></li>      <!-- vjesti o iOS/Android igrama-->
-                    <li><a href="#">Best Free Games</a></li>
-                    <li><a href="#">Upcoming Releases</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Gamers United Logo" id="logo">
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
+                <li class="dropdown">
+                    <a href="{{ url_for('pc') }}">PC</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">PC News</a></li>
+                        <li><a href="#">Best Deals</a></li>
+                        <li><a href="#">PC Game Reviews</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="{{ url_for('konzole') }}">Consoles</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Console News</a></li>
+                        <li><a href="#">Top Games</a></li>
+                        <li><a href="#">Upcoming Releases</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="{{ url_for('boardgames') }}">Board Games</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ url_for('bg_news') }}">Board Games News</a></li>
+                        <li><a href="{{ url_for('bg_reviews') }}">Reviews</a></li>
+                        <li><a href="{{ url_for('bg_top') }}">Top Picks</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="{{ url_for('mobile') }}">Mobile Games</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Mobile News</a></li>
+                        <li><a href="#">Best Free Games</a></li>
+                        <li><a href="#">Upcoming Releases</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
     </header>
 
-<div class="news-container">
-<h1 id="welcome">Board Games Paradise</h1>
+    <!-- HERO SECTION -->
+    <div class="hero">
+        <h1 class="page-title">Board Games</h1>
+        <p class="page-subtitle">News, Reviews & Top Picks from the board game world</p>
+    </div>
 
+    <!-- 3 KATEGORIJE -->
+    <div class="card-container">
+        <a href="{{ url_for('bg_news') }}" class="category-card">
+            <div class="category-icon">📰</div>
+            <h2>News</h2>
+            <p>Latest updates from the board game world</p>
+        </a>
 
+        <a href="{{ url_for('bg_reviews') }}" class="category-card">
+            <div class="category-icon">⭐</div>
+            <h2>Reviews</h2>
+            <p>In-depth reviews of popular board games</p>
+        </a>
 
-<h2 id="latest-news">Latest Boardgames News</h2>
-<img src="{{ url_for('static', filename='images/loading.jpg') }}" alt="Loading..." id="loading" style="width: 700px;"> <!-- placeholder za api za neki news, style maknut-->
+        <a href="{{ url_for('bg_top') }}" class="category-card">
+            <div class="category-icon">🏆</div>
+            <h2>Top Picks</h2>
+            <p>Best board games right now</p>
+        </a>
+    </div>
 
-</div>
+    <!-- FEATURED GAMES (placeholder za API) -->
+    <section class="section">
+        <h2 class="section-title">Featured Games</h2>
+        <div class="card-container">
 
+            <div class="game-card">
+                <div class="game-rank">#1</div>
+                <h3>Catan</h3>
+                <p class="game-genre">Strategy · 3-4 players</p>
+                <p class="game-desc">Trade, build and settle your way to victory in this classic strategy game.</p>
+                <div class="game-rating">⭐ 9.2 / 10</div>
+            </div>
+
+            <div class="game-card">
+                <div class="game-rank">#2</div>
+                <h3>Carcassonne</h3>
+                <p class="game-genre">Tile Placement · 2-5 players</p>
+                <p class="game-desc">Build the medieval landscape of Carcassonne one tile at a time.</p>
+                <div class="game-rating">⭐ 8.9 / 10</div>
+            </div>
+
+            <div class="game-card">
+                <div class="game-rank">#3</div>
+                <h3>Terraforming Mars</h3>
+                <p class="game-genre">Strategy · 1-5 players</p>
+                <p class="game-desc">Compete to make Mars habitable in this deep strategy game.</p>
+                <div class="game-rating">⭐ 9.5 / 10</div>
+            </div>
+
+            <div class="game-card">
+                <div class="game-rank">#4</div>
+                <h3>Pandemic</h3>
+                <p class="game-genre">Cooperative · 2-4 players</p>
+                <p class="game-desc">Work together to stop global disease outbreaks before it's too late.</p>
+                <div class="game-rating">⭐ 8.7 / 10</div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2025 Gamers United · All rights reserved</p>
+    </footer>
 
 </body>
 </html>
