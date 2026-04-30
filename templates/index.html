@@ -3,82 +3,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta description="Gamers United, a place where all type of gamers find news from the gaming world.">
+    <meta name="description" content="Gamers United, a place where all type of gamers find news from the gaming world.">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-
-
     <title>Gamers United</title>
-
 </head>
 <body>
+
     <header>
-    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Gamers United Logo" id="logo">
-    <nav>
-       <ul>
-            <li><a href="{{ url_for('index') }}">Home</a></li>
+        <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Gamers United Logo" id="logo">
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Home</a></li>
 
-            <li class="dropdown">
-                <a href="{{ url_for('pc') }}">PC</a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">PC News</a></li>
-                    <li><a href="#">Best deals</a></li>
-                    <li><a href="#">PC Game Reviews</a></li>
-                </ul>
-            </li>
+                <li class="dropdown">
+                    <a href="{{ url_for('pc') }}">PC</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">PC News</a></li>
+                        <li><a href="#">Best Deals</a></li>
+                        <li><a href="#">PC Game Reviews</a></li>
+                    </ul>
+                </li>
 
-            <li class="dropdown">
-                <a href="{{ url_for('konzole') }}">Consoles</a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Consoles news</a></li>      <!-- npr opce vijesti o PS5, XboX, Switch -->
-                    <li><a href="#">Top Games</a></li>
-                    <li><a href="#">Upcoming Releases</a></li>
-                </ul>
-            </li>
+                <li class="dropdown">
+                    <a href="{{ url_for('konzole') }}">Consoles</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Console News</a></li>
+                        <li><a href="#">Top Games</a></li>
+                        <li><a href="#">Upcoming Releases</a></li>
+                    </ul>
+                </li>
 
-            <li class="dropdown">
-                <a href="{{ url_for('boardgames') }}">Board Games</a>
-                <ul class="dropdown-menu">
-                    <li><a href="{{ url_for('bg_news') }}">Board Games news</a></li>   <!-- kickstarter mozda nove-->
-                    <li><a href="{{ url_for('bg_reviews') }}">Reviews</a></li>    
-                    <li><a href="{{ url_for('bg_top') }}">Top Picks</a></li>          <!-- preporuke za party, strategije itd... -->
-                </ul>
-            </li>
+                <li class="dropdown">
+                    <a href="{{ url_for('boardgames') }}">Board Games</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ url_for('bg_news') }}">Board Games News</a></li>
+                        <li><a href="{{ url_for('bg_reviews') }}">Reviews</a></li>
+                        <li><a href="{{ url_for('bg_top') }}">Top Picks</a></li>
+                    </ul>
+                </li>
 
-            <li class="dropdown">
-                <a href="{{ url_for('mobile') }}">Mobile Games</a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Mobile games news</a></li>      <!-- vjesti o iOS/Android igrama-->
-                    <li><a href="#">Best Free Games</a></li>
-                    <li><a href="#">Upcoming Releases</a></li>
-                </ul>
-            </li>
-        </ul>
-    </nav>
+                <li class="dropdown">
+                    <a href="{{ url_for('mobile') }}">Mobile Games</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Mobile News</a></li>
+                        <li><a href="#">Best Free Games</a></li>
+                        <li><a href="#">Upcoming Releases</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
     </header>
 
-<div class="news-container">
-<h1 id="welcome">Welcome to Gamers United</h1>
+    <!-- HERO SEKCIJA -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to <span class="highlight">Gamers United</span></h1>
+            <p>Your hub for gaming news, reviews, and top picks — across all platforms.</p>
+            <a href="#latest-news" class="hero-btn">Explore News ↓</a>
+        </div>
+    </section>
 
-<!-- testiranje samo ako radi api u falsku i kako se prikazuje -->
-{% for article in news %}
-    <div class="news-item">
-        <h3>{{ article.title }}</h3>
-        <p>{{ article.description }}</p>
-        <a href="{{ article.url }}" target="_blank">Read more</a>
-    </div>
-{% endfor %}
+    <!-- KATEGORIJE -->
+    <section class="categories">
+        <a href="{{ url_for('pc') }}" class="category-card">
+            <span class="cat-icon">🖥️</span>
+            <span>PC</span>
+        </a>
+        <a href="{{ url_for('konzole') }}" class="category-card">
+            <span class="cat-icon">🎮</span>
+            <span>Consoles</span>
+        </a>
+        <a href="{{ url_for('boardgames') }}" class="category-card">
+            <span class="cat-icon">♟️</span>
+            <span>Board Games</span>
+        </a>
+        <a href="{{ url_for('mobile') }}" class="category-card">
+            <span class="cat-icon">📱</span>
+            <span>Mobile</span>
+        </a>
+    </section>
 
+    <!-- LATEST NEWS -->
+    <section class="news-section" id="latest-news">
+        <h2 class="section-title">Latest Global News</h2>
 
+        <div class="news-grid">
+            {% if news %}
+                {% for article in news %}
+                <div class="news-card">
+                    <div class="news-card-body">
+                        <h3>{{ article.title }}</h3>
+                        <p>{{ article.description }}</p>
+                        <a href="{{ article.url }}" target="_blank" class="read-more">Read more →</a>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <!-- PLACEHOLDER kartice dok nema API-ja -->
+                <div class="news-card placeholder">
+                    <img src="{{ url_for('static', filename='images/loading.jpg') }}" alt="Loading...">
+                    <div class="news-card-body">
+                        <h3>News coming soon...</h3>
+                        <p>We're working on bringing you the latest gaming news.</p>
+                    </div>
+                </div>
+                <div class="news-card placeholder">
+                    <img src="{{ url_for('static', filename='images/loading.jpg') }}" alt="Loading...">
+                    <div class="news-card-body">
+                        <h3>Stay tuned!</h3>
+                        <p>Top stories from PC, Console, Board Games and Mobile.</p>
+                    </div>
+                </div>
+                <div class="news-card placeholder">
+                    <img src="{{ url_for('static', filename='images/loading.jpg') }}" alt="Loading...">
+                    <div class="news-card-body">
+                        <h3>Coming soon...</h3>
+                        <p>Reviews, top picks and exclusive deals — all in one place.</p>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </section>
 
-<h2 id="latest-news">Latest Global News</h2>
-<img src="{{ url_for('static', filename='images/loading.jpg') }}" alt="Loading..." id="loading" style="width: 700px;"> <!-- placeholder za api za neki news, style maknut-->
-
-</div>
-
-
-<footer class="footer">
-    <p>© 2025 Gamers United · All rights reserved</p>
-</footer>
+    <footer class="footer">
+        <p>© 2025 Gamers United · All rights reserved</p>
+    </footer>
 
 </body>
 </html>
